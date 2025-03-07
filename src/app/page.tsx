@@ -1,3 +1,4 @@
+"use client";
 import { ArrowRight, Github } from "lucide-react";
 import { motion } from "framer-motion";
 import { ReactLogo } from "@/components/logos/react-logo";
