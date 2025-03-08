@@ -12,67 +12,72 @@ interface SidebarProps {
 }
 
 export default function EnhancedSidebar({ className }: SidebarProps) {
-  const [isOpen, setIsOpen] = useState(true)
-  const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({})
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const [searchQuery, setSearchQuery] = useState("")
-  const [searchResults, setSearchResults] = useState<Array<{ group: string; item: any }>>([])
-  const [theme, setTheme] = useState<"light" | "dark">("light")
-  const pathname = usePathname()
+  const [isOpen, setIsOpen] = useState(true);
+  const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>(
+    {}
+  );
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  // const [searchResults, setSearchResults] = useState<Array<{ group: string; item: any }>>([])
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const pathname = usePathname();
 
   // Initialize expanded groups
   useEffect(() => {
-    const initialExpanded: Record<string, boolean> = {}
+    const initialExpanded: Record<string, boolean> = {};
     DOCS.forEach((group) => {
       // Check if any child is active
-      const hasActiveChild = group.children.some((child) => child.url === pathname)
-      initialExpanded[group.groupKey] = hasActiveChild || group.groupKey === "gettingStart"
-    })
-    setExpandedGroups(initialExpanded)
-  }, [pathname])
+      const hasActiveChild = group.children.some(
+        (child) => child.url === pathname
+      );
+      initialExpanded[group.groupKey] =
+        hasActiveChild || group.groupKey === "gettingStart";
+    });
+    setExpandedGroups(initialExpanded);
+  }, [pathname]);
 
   // Handle search
-  useEffect(() => {
-    if (searchQuery.trim() === "") {
-      setSearchResults([])
-      return
-    }
+  // useEffect(() => {
+  //   if (searchQuery.trim() === "") {
+  //     setSearchResults([])
+  //     return
+  //   }
 
-    const query = searchQuery.toLowerCase()
-    const results: Array<{ group: string; item: any }> = []
+  //   const query = searchQuery.toLowerCase()
+  //   const results: Array<{ group: string; item: any }> = []
 
-    DOCS.forEach((group) => {
-      group.children.forEach((item) => {
-        if (item.label.toLowerCase().includes(query)) {
-          results.push({
-            group: group.groupValue,
-            item,
-          })
-        }
-      })
-    })
+  //   DOCS.forEach((group) => {
+  //     group.children.forEach((item) => {
+  //       if (item.label.toLowerCase().includes(query)) {
+  //         results.push({
+  //           group: group.groupValue,
+  //           item,
+  //         })
+  //       }
+  //     })
+  //   })
 
-    setSearchResults(results)
-  }, [searchQuery])
+  //   setSearchResults(results)
+  // }, [searchQuery])
 
   const toggleGroup = (groupKey: string) => {
     setExpandedGroups((prev) => ({
       ...prev,
       [groupKey]: !prev[groupKey],
-    }))
-  }
+    }));
+  };
 
   const toggleSidebar = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   const toggleMobileSidebar = () => {
-    setMobileOpen(!mobileOpen)
-  }
+    setMobileOpen(!mobileOpen);
+  };
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"))
-  }
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
 
   // Theme classes
   const themeClasses = {
@@ -80,11 +85,20 @@ export default function EnhancedSidebar({ className }: SidebarProps) {
     text: theme === "light" ? "text-gray-800" : "text-gray-100",
     border: theme === "light" ? "border-gray-200" : "border-gray-700",
     hover: theme === "light" ? "hover:bg-gray-100" : "hover:bg-gray-800",
-    active: theme === "light" ? "bg-blue-50 text-blue-600" : "bg-blue-900 text-blue-300",
+    active:
+      theme === "light"
+        ? "bg-blue-50 text-blue-600"
+        : "bg-blue-900 text-blue-300",
     muted: theme === "light" ? "text-gray-600" : "text-gray-400",
-    badge: theme === "light" ? "bg-blue-100 text-blue-800" : "bg-blue-900 text-blue-300",
-    input: theme === "light" ? "bg-gray-50 border-gray-300" : "bg-gray-800 border-gray-700",
-  }
+    badge:
+      theme === "light"
+        ? "bg-blue-100 text-blue-800"
+        : "bg-blue-900 text-blue-300",
+    input:
+      theme === "light"
+        ? "bg-gray-50 border-gray-300"
+        : "bg-gray-800 border-gray-700",
+  };
 
   return (
     <>
@@ -99,12 +113,18 @@ export default function EnhancedSidebar({ className }: SidebarProps) {
 
       {/* Desktop Sidebar */}
       <motion.aside
-        className={`hidden md:flex flex-col h-screen ${themeClasses.background} border-r ${themeClasses.border} ${isOpen ? "w-72" : "w-16"} transition-all duration-300 ${className}`}
+        className={`hidden md:flex flex-col h-screen ${
+          themeClasses.background
+        } border-r ${themeClasses.border} ${
+          isOpen ? "w-72" : "w-16"
+        } transition-all duration-300 ${className}`}
         initial={{ x: -20, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        <div className={`flex items-center justify-between p-4 border-b ${themeClasses.border}`}>
+        <div
+          className={`flex items-center justify-between p-4 border-b ${themeClasses.border}`}
+        >
           {isOpen && (
             <motion.div
               className="flex items-center gap-2"
@@ -115,14 +135,18 @@ export default function EnhancedSidebar({ className }: SidebarProps) {
               <div className="w-8 h-8 rounded-md bg-blue-500 flex items-center justify-center">
                 <span className="text-white font-bold">D</span>
               </div>
-              <h1 className={`text-lg font-semibold ${themeClasses.text}`}>Docs</h1>
+              <h1 className={`text-lg font-semibold ${themeClasses.text}`}>
+                Docs
+              </h1>
             </motion.div>
           )}
           <div className="flex items-center gap-2">
             <button
               onClick={toggleTheme}
               className={`p-1 rounded-md ${themeClasses.hover} transition-colors`}
-              aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+              aria-label={`Switch to ${
+                theme === "light" ? "dark" : "light"
+              } mode`}
             >
               <span className="sr-only">Toggle theme</span>
               {theme === "light" ? (
@@ -162,7 +186,11 @@ export default function EnhancedSidebar({ className }: SidebarProps) {
               className={`p-1 rounded-md ${themeClasses.hover} transition-colors`}
               aria-label={isOpen ? "Collapse sidebar" : "Expand sidebar"}
             >
-              <ChevronRight className={`h-5 w-5 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
+              <ChevronRight
+                className={`h-5 w-5 transition-transform duration-200 ${
+                  isOpen ? "rotate-180" : ""
+                }`}
+              />
             </button>
           </div>
         </div>
@@ -186,15 +214,19 @@ export default function EnhancedSidebar({ className }: SidebarProps) {
 
         <div className="flex-1 overflow-y-auto py-2">
           {/* Search Results */}
-          <AnimatePresence>
+          {/* <AnimatePresence>
             {isOpen && searchResults.length > 0 && (
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className={`mx-3 mb-4 p-3 rounded-md ${theme === "light" ? "bg-gray-50" : "bg-gray-800"}`}
+                className={`mx-3 mb-4 p-3 rounded-md ${
+                  theme === "light" ? "bg-gray-50" : "bg-gray-800"
+                }`}
               >
-                <h3 className={`text-sm font-medium mb-2 ${themeClasses.text}`}>Search Results</h3>
+                <h3 className={`text-sm font-medium mb-2 ${themeClasses.text}`}>
+                  Search Results
+                </h3>
                 <ul className="space-y-1">
                   {searchResults.map((result, index) => (
                     <motion.li
@@ -205,7 +237,11 @@ export default function EnhancedSidebar({ className }: SidebarProps) {
                     >
                       <Link
                         href={result.item.url}
-                        className={`flex items-center gap-2 px-3 py-1.5 text-sm rounded-md ${pathname === result.item.url ? themeClasses.active : `${themeClasses.muted} hover:${themeClasses.text}`}`}
+                        className={`flex items-center gap-2 px-3 py-1.5 text-sm rounded-md ${
+                          pathname === result.item.url
+                            ? themeClasses.active
+                            : `${themeClasses.muted} hover:${themeClasses.text}`
+                        }`}
                         onClick={() => setSearchQuery("")}
                       >
                         <span className="truncate">{result.item.label}</span>
@@ -222,7 +258,7 @@ export default function EnhancedSidebar({ className }: SidebarProps) {
                 </ul>
               </motion.div>
             )}
-          </AnimatePresence>
+          </AnimatePresence> */}
 
           {/* Main Navigation */}
           {DOCS.map((group) => (
@@ -235,7 +271,9 @@ export default function EnhancedSidebar({ className }: SidebarProps) {
                   >
                     <span>{group.groupValue}</span>
                     <ChevronDown
-                      className={`h-4 w-4 transition-transform duration-200 ${expandedGroups[group.groupKey] ? "rotate-180" : ""}`}
+                      className={`h-4 w-4 transition-transform duration-200 ${
+                        expandedGroups[group.groupKey] ? "rotate-180" : ""
+                      }`}
                     />
                   </button>
 
@@ -253,15 +291,31 @@ export default function EnhancedSidebar({ className }: SidebarProps) {
                             <motion.li
                               key={item.value}
                               whileHover={{ x: 4 }}
-                              transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                              transition={{
+                                type: "spring",
+                                stiffness: 400,
+                                damping: 20,
+                              }}
                             >
                               <Link
                                 href={item.url}
-                                className={`flex items-center gap-2 px-3 py-1.5 text-sm rounded-md ${pathname === item.url ? themeClasses.active : `${themeClasses.muted} hover:${themeClasses.text}`}`}
-                                target={item.url.startsWith("http") ? "_blank" : undefined}
+                                className={`flex items-center gap-2 px-3 py-1.5 text-sm rounded-md ${
+                                  pathname === item.url
+                                    ? themeClasses.active
+                                    : `${themeClasses.muted} hover:${themeClasses.text}`
+                                }`}
+                                target={
+                                  item.url.startsWith("http")
+                                    ? "_blank"
+                                    : undefined
+                                }
                               >
-                                <span className="truncate flex-1">{item.label}</span>
-                                {item.url.startsWith("http") && <ExternalLink className="h-3 w-3 flex-shrink-0" />}
+                                <span className="truncate flex-1">
+                                  {item.label}
+                                </span>
+                                {item.url.startsWith("http") && (
+                                  <ExternalLink className="h-3 w-3 flex-shrink-0" />
+                                )}
                                 {item.new && (
                                   <span
                                     className={`inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium ${themeClasses.badge}`}
@@ -284,7 +338,9 @@ export default function EnhancedSidebar({ className }: SidebarProps) {
                     className={`p-2 rounded-md ${themeClasses.hover} transition-colors`}
                     title={group.groupValue}
                   >
-                    <span className={`text-xs font-bold ${themeClasses.text}`}>{group.groupValue.substring(0, 1)}</span>
+                    <span className={`text-xs font-bold ${themeClasses.text}`}>
+                      {group.groupValue.substring(0, 1)}
+                    </span>
                   </button>
                 </div>
               )}
@@ -320,12 +376,16 @@ export default function EnhancedSidebar({ className }: SidebarProps) {
               transition={{ type: "spring", damping: 25 }}
               className={`fixed top-0 left-0 z-50 w-72 h-screen ${themeClasses.background} border-r ${themeClasses.border} md:hidden`}
             >
-              <div className={`flex items-center justify-between p-4 border-b ${themeClasses.border}`}>
+              <div
+                className={`flex items-center justify-between p-4 border-b ${themeClasses.border}`}
+              >
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-md bg-blue-500 flex items-center justify-center">
                     <span className="text-white font-bold">D</span>
                   </div>
-                  <h1 className={`text-lg font-semibold ${themeClasses.text}`}>Docs</h1>
+                  <h1 className={`text-lg font-semibold ${themeClasses.text}`}>
+                    Docs
+                  </h1>
                 </div>
                 <button
                   onClick={toggleMobileSidebar}
@@ -352,15 +412,21 @@ export default function EnhancedSidebar({ className }: SidebarProps) {
 
               <div className="overflow-y-auto h-[calc(100vh-140px)]">
                 {/* Search Results */}
-                <AnimatePresence>
+                {/* <AnimatePresence>
                   {searchResults.length > 0 && (
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      className={`mx-3 mb-4 p-3 rounded-md ${theme === "light" ? "bg-gray-50" : "bg-gray-800"}`}
+                      className={`mx-3 mb-4 p-3 rounded-md ${
+                        theme === "light" ? "bg-gray-50" : "bg-gray-800"
+                      }`}
                     >
-                      <h3 className={`text-sm font-medium mb-2 ${themeClasses.text}`}>Search Results</h3>
+                      <h3
+                        className={`text-sm font-medium mb-2 ${themeClasses.text}`}
+                      >
+                        Search Results
+                      </h3>
                       <ul className="space-y-1">
                         {searchResults.map((result, index) => (
                           <motion.li
@@ -371,13 +437,19 @@ export default function EnhancedSidebar({ className }: SidebarProps) {
                           >
                             <Link
                               href={result.item.url}
-                              className={`flex items-center gap-2 px-3 py-1.5 text-sm rounded-md ${pathname === result.item.url ? themeClasses.active : `${themeClasses.muted} hover:${themeClasses.text}`}`}
+                              className={`flex items-center gap-2 px-3 py-1.5 text-sm rounded-md ${
+                                pathname === result.item.url
+                                  ? themeClasses.active
+                                  : `${themeClasses.muted} hover:${themeClasses.text}`
+                              }`}
                               onClick={() => {
-                                setSearchQuery("")
-                                toggleMobileSidebar()
+                                setSearchQuery("");
+                                toggleMobileSidebar();
                               }}
                             >
-                              <span className="truncate">{result.item.label}</span>
+                              <span className="truncate">
+                                {result.item.label}
+                              </span>
                               {result.item.new && (
                                 <span
                                   className={`inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium ${themeClasses.badge}`}
@@ -391,7 +463,7 @@ export default function EnhancedSidebar({ className }: SidebarProps) {
                       </ul>
                     </motion.div>
                   )}
-                </AnimatePresence>
+                </AnimatePresence> */}
 
                 {/* Main Navigation */}
                 {DOCS.map((group) => (
@@ -402,7 +474,9 @@ export default function EnhancedSidebar({ className }: SidebarProps) {
                     >
                       <span>{group.groupValue}</span>
                       <ChevronDown
-                        className={`h-4 w-4 transition-transform duration-200 ${expandedGroups[group.groupKey] ? "rotate-180" : ""}`}
+                        className={`h-4 w-4 transition-transform duration-200 ${
+                          expandedGroups[group.groupKey] ? "rotate-180" : ""
+                        }`}
                       />
                     </button>
 
@@ -420,16 +494,32 @@ export default function EnhancedSidebar({ className }: SidebarProps) {
                               <motion.li
                                 key={item.value}
                                 whileHover={{ x: 4 }}
-                                transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                                transition={{
+                                  type: "spring",
+                                  stiffness: 400,
+                                  damping: 20,
+                                }}
                               >
                                 <Link
                                   href={item.url}
-                                  className={`flex items-center gap-2 px-3 py-1.5 text-sm rounded-md ${pathname === item.url ? themeClasses.active : `${themeClasses.muted} hover:${themeClasses.text}`}`}
+                                  className={`flex items-center gap-2 px-3 py-1.5 text-sm rounded-md ${
+                                    pathname === item.url
+                                      ? themeClasses.active
+                                      : `${themeClasses.muted} hover:${themeClasses.text}`
+                                  }`}
                                   onClick={toggleMobileSidebar}
-                                  target={item.url.startsWith("http") ? "_blank" : undefined}
+                                  target={
+                                    item.url.startsWith("http")
+                                      ? "_blank"
+                                      : undefined
+                                  }
                                 >
-                                  <span className="truncate flex-1">{item.label}</span>
-                                  {item.url.startsWith("http") && <ExternalLink className="h-3 w-3 flex-shrink-0" />}
+                                  <span className="truncate flex-1">
+                                    {item.label}
+                                  </span>
+                                  {item.url.startsWith("http") && (
+                                    <ExternalLink className="h-3 w-3 flex-shrink-0" />
+                                  )}
                                   {item.new && (
                                     <span
                                       className={`inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium ${themeClasses.badge}`}
@@ -459,6 +549,6 @@ export default function EnhancedSidebar({ className }: SidebarProps) {
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }
 

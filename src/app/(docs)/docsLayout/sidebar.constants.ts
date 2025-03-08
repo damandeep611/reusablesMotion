@@ -44,15 +44,11 @@ export const DOCS: Documentation[] = [
     groupValue: "Reusables Components",
     children: [
       { label: "Alert", value: "alert", url: "/docs/alert", new: true },
-      {
-        label: "Animated SVG Chart from lib",
-        value: "animatedchart",
-        url: "/docs/animatedchart",
-      },
+
       {
         label: "Animated Feature ",
         value: "animatedfeature",
-        url: "/docs/animatednew",
+        url: "/docs/gridfeature",
       },
       {
         label: "Animated Testimonials",
