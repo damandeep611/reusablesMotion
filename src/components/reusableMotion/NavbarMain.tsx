@@ -32,7 +32,7 @@ export default function Navbar() {
   // state for mobile menu button
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   return (
-    <div className="">
+    <div className="border-b border-gray-300">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* left navbar */}

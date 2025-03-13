@@ -16,12 +16,12 @@ export default function DocsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="mt-10 flex">
+    <main className=" flex">
       <div>
         <DocsSidebar />
       </div>
       <section
-        className="flex flex-1 flex-col overflow-auto px-6"
+        className="flex flex-1 flex-col overflow-auto px-4"
         role="main"
         aria-label="Main content"
       >

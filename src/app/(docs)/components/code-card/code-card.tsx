@@ -16,29 +16,27 @@ const CodeCard = ({ children, code, className }: CodeCardProps) => {
   return (
     <div className={cn("w-full", className)}>
       <div className="flex space-x-1 rounded-lg bg-gray-100 p-1">
-        <TabButton 
-          isActive={activeTab === "preview"} 
+        <TabButton
+          isActive={activeTab === "preview"}
           onClick={() => setActiveTab("preview")}
         >
           Preview
         </TabButton>
-        <TabButton 
-          isActive={activeTab === "code"} 
+        <TabButton
+          isActive={activeTab === "code"}
           onClick={() => setActiveTab("code")}
         >
-          Ass Code
+          Code
         </TabButton>
       </div>
-      
-      <div className="mt-4 relative">
+
+      <div className="mt-2 relative">
         <TabPanel isActive={activeTab === "preview"}>
-          <div className="rounded-md border-2">
-            {children}
-          </div>
+          <div className="rounded-md border-1">{children}</div>
         </TabPanel>
-        
+
         <TabPanel isActive={activeTab === "code"}>
-          <div className="rounded-md border-2">
+          <div className="rounded-md border-1">
             <CodeHighlight code={code} inTab />
           </div>
         </TabPanel>

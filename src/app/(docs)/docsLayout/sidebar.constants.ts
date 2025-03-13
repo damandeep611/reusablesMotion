@@ -19,23 +19,23 @@ export const DOCS: Documentation[] = [
       {
         label: "Twitter @devdaman",
         value: "Twitter @devdaman",
-        url: "https://x.com/devdaman",
+        url: "https://x.com/scriptorcas",
       },
     ],
   },
   {
-    groupKey: "gettingStart",
-    groupValue: "Getting Started",
+    groupKey: "templates",
+    groupValue: "Templates",
     children: [
       {
-        label: "Introduction",
-        value: "introduction",
+        label: "Gen Ai SaaS",
+        value: "genaisaas",
         url: "/docs",
       },
       {
-        label: "Installation",
+        label: "Agency",
         value: "installation",
-        url: "/docs/installation",
+        url: "/docs",
       },
     ],
   },
@@ -50,9 +50,9 @@ export const DOCS: Documentation[] = [
         url: "/docs/gridfeature",
       },
       {
-        label: "Animated Feature ",
-        value: "animatedfeature",
-        url: "/docs/animatednew",
+        label: "Pricing Card Reveal ",
+        value: "pricing reveal",
+        url: "/docs/pricingreveal",
       },
       {
         label: "Animated Testimonials",

@@ -6,7 +6,7 @@ import PreviewCodeCard from "../../components/preview-code-card";
 const page = () => {
   return (
     <div>
-      <PageTemplate title="Animated Feature Grid Section" className="mt-5">
+      <PageTemplate title="Animated Feature Grid Section" className="mt-1">
         <PreviewCodeCard path="src/app/(docs)/docs/gridfeature/gridfeaturedemo.tsx">
           <GridFeatureDemo />
         </PreviewCodeCard>
