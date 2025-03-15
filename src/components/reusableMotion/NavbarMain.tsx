@@ -40,7 +40,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="border-b border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900">
+    <div className="border-b border-gray-300 dark:border-gray-700 bg-white dark:bg-black">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* left navbar */}

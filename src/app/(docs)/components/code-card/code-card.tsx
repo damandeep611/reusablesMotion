@@ -15,7 +15,7 @@ const CodeCard = ({ children, code, className }: CodeCardProps) => {
 
   return (
     <div className={cn("w-full", className)}>
-      <div className="flex space-x-1 rounded-lg bg-gray-100 p-1">
+      <div className="flex space-x-1 rounded-lg border-2 border-gray-200 p-1 ">
         <TabButton
           isActive={activeTab === "preview"}
           onClick={() => setActiveTab("preview")}
@@ -32,7 +32,7 @@ const CodeCard = ({ children, code, className }: CodeCardProps) => {
 
       <div className="mt-2 relative">
         <TabPanel isActive={activeTab === "preview"}>
-          <div className="rounded-md border-1">{children}</div>
+          <div className="rounded-md  border-1">{children}</div>
         </TabPanel>
 
         <TabPanel isActive={activeTab === "code"}>
@@ -57,15 +57,13 @@ const TabButton = ({ children, isActive, onClick }: TabButtonProps) => {
       onClick={onClick}
       className={cn(
         "relative px-4 py-2 rounded-md font-semibold font-regular text-sm transition-colors duration-200",
-        isActive 
-          ? "text-black bg-white shadow-sm" 
-          : "text-gray-600 hover:text-gray-900 hover:bg-gray-200"
+        isActive ? " shadow-sm" : " "
       )}
     >
       {children}
       {isActive && (
         <motion.div
-          className="absolute bottom-0 left-0 right-0 h-0.5 bg-black rounded-full"
+          className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-100 my-1 rounded-full"
           layoutId="activeTab"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
