@@ -43,14 +43,19 @@ export const DOCS: Documentation[] = [
     groupKey: "components",
     groupValue: "Reusables Components",
     children: [
-      { label: "Alert", value: "alert", url: "/docs/alert", new: true },
       {
-        label: "Animated Feature Section",
-        value: "animatedfeaturesection",
+        label: "Features",
+        value: "featues",
         url: "/docs/gridfeature",
+        new: true,
       },
       {
-        label: "Pricing Card Reveal ",
+        label: "Dock Menu",
+        value: "dockmenu",
+        url: "/docs/dockmenus",
+      },
+      {
+        label: "Pricing ",
         value: "pricing reveal",
         url: "/docs/pricingreveal",
       },

@@ -4,7 +4,7 @@ import { DOCS } from "./sidebar.constants";
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
+import { ArrowRight, ChevronDown, ChevronRight, X } from "lucide-react";
 
 interface SidebarProps {
   className?: string;
@@ -42,10 +42,10 @@ export default function DocsSidebar({ className }: SidebarProps) {
       {/* button toggle button */}
       <button
         onClick={toggleMobileSidebar}
-        className="fixed top-4 left-4 z-50 p-2 rounded-md bg-white shadow-md md:hidden"
+        className="fixed top-4 left-2 z-50 p-2 rounded-md shadow-md md:hidden"
         aria-label="Toggle sidebar"
       >
-        {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+        {mobileOpen ? <X size={20} /> : <ArrowRight size={20} />}
       </button>
       {/* desktop docs sidebar */}
       <motion.aside
@@ -69,7 +69,7 @@ export default function DocsSidebar({ className }: SidebarProps) {
           )}
           <button
             onClick={toggleSidebar}
-            className="p-1 rounded-md hover:bg-gray-100 transition-colors"
+            className="p-1 rounded-md  transition-colors"
             aria-label={isOpen ? "Collapse sidebar" : "Expand sidebar"}
           >
             <ChevronRight
@@ -86,7 +86,7 @@ export default function DocsSidebar({ className }: SidebarProps) {
                 <>
                   <button
                     onClick={() => toggleGroup(group.groupKey)}
-                    className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors"
+                    className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium transition-colors"
                   >
                     <span>{group.groupValue}</span>
                     <ChevronDown
@@ -129,7 +129,7 @@ export default function DocsSidebar({ className }: SidebarProps) {
                 <div>
                   <button
                     onClick={() => toggleGroup(group.groupKey)}
-                    className="p-2 rounded-md hover:bg-gray-100 transition-colors"
+                    className="p-2 rounded-md  transition-colors"
                     title={group.groupValue}
                   >
                     <span className="text-xs font-bold">
@@ -151,7 +151,7 @@ export default function DocsSidebar({ className }: SidebarProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.5 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black z-40 md:hidden"
+              className="fixed inset-0  z-40 md:hidden"
               onClick={toggleMobileSidebar}
             />
             <motion.aside
@@ -159,13 +159,13 @@ export default function DocsSidebar({ className }: SidebarProps) {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 25 }}
-              className="fixed top-0 left-0 z-50 w-64 h-screen bg-white border-r border-gray-200 md:hidden"
+              className="fixed top-0 left-0 z-50 w-64 h-screen bg-white dark:bg-gray-900 dark:text-gray-100 border-r border-gray-200 md:hidden"
             >
               <div className="flex items-center justify-between p-4 border-b border-gray-200">
                 <h1 className="text-lg font-semibold">Documentation</h1>
                 <button
                   onClick={toggleMobileSidebar}
-                  className="p-1 rounded-md hover:bg-gray-100 transition-colors"
+                  className="p-1 rounded-md  transition-colors"
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -176,7 +176,7 @@ export default function DocsSidebar({ className }: SidebarProps) {
                   <div key={group.groupKey} className="mb-2">
                     <button
                       onClick={() => toggleGroup(group.groupKey)}
-                      className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors"
+                      className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium transition-colors"
                     >
                       <span>{group.groupValue}</span>
                       <ChevronDown
@@ -211,7 +211,7 @@ export default function DocsSidebar({ className }: SidebarProps) {
                                   className={`flex items-center gap-2 px-4 py-2 text-sm rounded-md ${
                                     pathname === item.url
                                       ? "bg-blue-50 text-blue-600 font-medium"
-                                      : "text-gray-600 hover:text-gray-900"
+                                      : "text-gray-200 "
                                   }`}
                                   onClick={toggleMobileSidebar}
                                 >
