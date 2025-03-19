@@ -61,7 +61,7 @@ export default function SwipeDock() {
   if (!showOnMobile) return null
 
   return (
-    <div className=" flex justify-center items-center z-50 pointer-events-none">
+    <div className=" flex justify-center items-center z-50 pointer-events-none ">
       <div className="relative flex items-center justify-center pointer-events-auto">
         {/* Left Label (About) */}
         <AnimatePresence>
@@ -160,6 +160,6 @@ export default function SwipeDock() {
         )}
       </div>
     </div>
-  )
+  );
 }
 

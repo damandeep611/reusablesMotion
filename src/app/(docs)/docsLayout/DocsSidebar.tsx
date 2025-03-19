@@ -49,14 +49,14 @@ export default function DocsSidebar({ className }: SidebarProps) {
       </button>
       {/* desktop docs sidebar */}
       <motion.aside
-        className={`hidden md:flex flex-col h-screen border-r border-gray-200 ${
+        className={`hidden md:flex flex-col h-screen border-r border-gray-700 ${
           isOpen ? "w-64" : "w-16"
         } transition-all duration-300 ${className}`}
         initial={{ x: -20, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        <div className="flex items-center justify-between p-4 border-b border-gray-200">
+        <div className="flex items-center justify-between p-4 border-b border-gray-600">
           {isOpen && (
             <motion.h1
               className="text-lg font-semibold"
@@ -86,7 +86,7 @@ export default function DocsSidebar({ className }: SidebarProps) {
                 <>
                   <button
                     onClick={() => toggleGroup(group.groupKey)}
-                    className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium transition-colors"
+                    className="flex items-center justify-between w-full px-4 py-2 text-sm font-semibold transition-colors"
                   >
                     <span>{group.groupValue}</span>
                     <ChevronDown
@@ -109,7 +109,7 @@ export default function DocsSidebar({ className }: SidebarProps) {
                             <li key={item.value}>
                               <Link
                                 href={item.url}
-                                className="flex items-center gap-2 px-4 py-2 text-sm rounded-md "
+                                className="flex items-center gap-2 px-4 py-2 text-sm font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 rounded-md "
                               >
                                 <span>{item.label}</span>
                                 {item.new && (
