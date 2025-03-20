@@ -76,9 +76,9 @@ export const DOCS: Documentation[] = [
       },
       { label: "Mix", value: "mix-components", url: "/docs/mix" },
       {
-        label: "Datetime Picker",
-        value: "datetime-picker",
-        url: "/docs/datetime-picker",
+        label: "Cards",
+        value: "cards-section",
+        url: "/docs/cards",
       },
       {
         label: "Dual Range Slider",

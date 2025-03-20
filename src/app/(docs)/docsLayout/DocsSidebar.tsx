@@ -4,7 +4,7 @@ import { DOCS } from "./sidebar.constants";
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { ArrowRight, ChevronDown, ChevronRight, X } from "lucide-react";
+import { ChevronDown, ChevronRight, X } from "lucide-react";
 
 interface SidebarProps {
   className?: string;
@@ -39,22 +39,11 @@ export default function DocsSidebar({ className }: SidebarProps) {
   };
   return (
     <>
-      {/* button toggle button */}
-      <button
-        onClick={toggleMobileSidebar}
-        className="fixed top-4 left-2 z-50 p-2 rounded-md shadow-md md:hidden"
-        aria-label="Toggle sidebar"
-      >
-        {mobileOpen ? <X size={20} /> : <ArrowRight size={20} />}
-      </button>
       {/* desktop docs sidebar */}
       <motion.aside
         className={`hidden md:flex flex-col h-screen border-r border-gray-700 ${
           isOpen ? "w-64" : "w-16"
         } transition-all duration-300 ${className}`}
-        initial={{ x: -20, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.3 }}
       >
         <div className="flex items-center justify-between p-4 border-b border-gray-600">
           {isOpen && (
