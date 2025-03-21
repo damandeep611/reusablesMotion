@@ -1,17 +1,11 @@
-import { PageTemplate } from "../../components/page-template"
-import PreviewCodeCard from "../../components/preview-code-card";
-import HoverChange from "./HoverChange";
+import { PageTemplate } from "../../components/page-template";
 
-const page = ()=> {
-  return(
+const page = () => {
+  return (
     <div>
-      <PageTemplate title="Cards" >
-        <PreviewCodeCard path="src/app/(docs)/docs/cards/HoverChange.tsx">
-          <HoverChange/>
-        </PreviewCodeCard>
-      </PageTemplate>
+      <PageTemplate title="Cards"></PageTemplate>
     </div>
-  )
-}
+  );
+};
 
 export default page;

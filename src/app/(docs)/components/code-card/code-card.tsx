@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import CodeHighlight from "./parts/code-highlight";
+import { FileCode, View } from "lucide-react";
 
 interface CodeCardProps {
   children?: React.ReactNode;
@@ -15,24 +15,29 @@ const CodeCard = ({ children, code, className }: CodeCardProps) => {
 
   return (
     <div className={cn("w-full", className)}>
-      <div className="flex space-x-1 rounded-lg border-2 border-gray-200 p-1 ">
+      <div className="flex space-x-1 rounded-lg  p-1 ">
         <TabButton
           isActive={activeTab === "preview"}
           onClick={() => setActiveTab("preview")}
         >
+          <View size={15} />
           Preview
         </TabButton>
         <TabButton
           isActive={activeTab === "code"}
           onClick={() => setActiveTab("code")}
         >
+          <FileCode size={15} />
           Code
         </TabButton>
       </div>
 
       <div className="mt-2 relative">
         <TabPanel isActive={activeTab === "preview"}>
-          <div className="rounded-md  border-1">{children}</div>
+          {/* component preview height and div container */}
+          <div className="rounded-md min-h-[350px] flex items-center justify-center  border-1 border-gray-800">
+            {children}
+          </div>
         </TabPanel>
 
         <TabPanel isActive={activeTab === "code"}>
@@ -56,20 +61,21 @@ const TabButton = ({ children, isActive, onClick }: TabButtonProps) => {
     <button
       onClick={onClick}
       className={cn(
-        "relative px-4 py-2 rounded-md font-semibold font-regular text-sm transition-colors duration-200",
-        isActive ? " shadow-sm" : " "
+        "relative flex items-center justify-between gap-2 px-4 py-2 rounded-md font-semibold font-regular text-md transition-colors duration-200",
+        isActive ? " shadow-sm bg-gray-800" : " "
       )}
     >
       {children}
-      {isActive && (
+      {/* this following isactive showed a bar line below active tab button */}
+      {/* {isActive && (
         <motion.div
-          className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-100 my-1 rounded-full"
+          className="absolute bottom-0 left-0  bg-gray-100 my-1 rounded-full"
           layoutId="activeTab"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.2 }}
         />
-      )}
+      )} */}
     </button>
   );
 };

@@ -16,12 +16,12 @@ export default function DocsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className=" flex">
-      <div>
+    <main className=" flex h-screen">
+      <div className="h-full">
         <DocsSidebar />
       </div>
       <section
-        className="flex flex-1 flex-col overflow-auto px-4"
+        className="flex flex-1 flex-col overflow-y-auto px-4"
         role="main"
         aria-label="Main content"
       >

@@ -41,9 +41,9 @@ export default function DocsSidebar({ className }: SidebarProps) {
     <>
       {/* desktop docs sidebar */}
       <motion.aside
-        className={`hidden md:flex flex-col h-screen border-r border-gray-700 ${
-          isOpen ? "w-64" : "w-16"
-        } transition-all duration-300 ${className}`}
+        className={`hidden md:flex flex-col h-full  ${
+          isOpen ? "w-64 " : "w-16"
+        } transition-all duration-300  ${className}`}
       >
         <div className="flex items-center justify-between p-4 border-b border-gray-600">
           {isOpen && (
@@ -68,7 +68,7 @@ export default function DocsSidebar({ className }: SidebarProps) {
             />
           </button>
         </div>
-        <div className="flex-1 overflow-y-auto py-2">
+        <div className="flex-1 overflow-y-auto py-2 ">
           {DOCS.map((group) => (
             <div key={group.groupKey} className="mb-2">
               {isOpen ? (
