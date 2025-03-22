@@ -9,6 +9,7 @@ interface Documentation {
   groupKey: string;
   groupValue: string;
   children: DocumentationChild[];
+  icon?: React.ReactNode;
 }
 
 export const DOCS: Documentation[] = [

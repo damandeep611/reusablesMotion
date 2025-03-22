@@ -2,7 +2,7 @@ import React from "react";
 
 
 import type { Viewport } from "next";
-import DocsSidebar from "./docsLayout/DocsSidebar";
+import { LibrarySidebar } from "./docsLayout/LibrarySidebar";
 // import RequestComponents from "@/components/requestcomponets";
 
 export const viewport: Viewport = {
@@ -18,7 +18,7 @@ export default function DocsLayout({
   return (
     <main className=" flex h-screen">
       <div className="h-full">
-        <DocsSidebar />
+        <LibrarySidebar />
       </div>
       <section
         className="flex flex-1 flex-col overflow-y-auto px-4"
