@@ -23,6 +23,7 @@ export const DOCS: Documentation[] = [
       },
     ],
   },
+
   {
     groupKey: "templates",
     groupValue: "Templates",
@@ -81,9 +82,9 @@ export const DOCS: Documentation[] = [
         url: "/docs/cards",
       },
       {
-        label: "Dual Range Slider",
-        value: "dual-range-slider",
-        url: "/docs/dual-range-slider",
+        label: "Sidebar",
+        value: "sidebar-section",
+        url: "/docs/sidebar",
       },
       {
         label: "Event Calendar",

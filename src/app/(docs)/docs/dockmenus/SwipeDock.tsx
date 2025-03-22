@@ -61,7 +61,7 @@ export default function SwipeDock() {
   if (!showOnMobile) return null
 
   return (
-    <div className=" flex justify-center items-center z-50 pointer-events-none ">
+    <div className="   flex justify-center items-center z-50 cursor-pointer">
       <div className="relative flex items-center justify-center pointer-events-auto">
         {/* Left Label (About) */}
         <AnimatePresence>
@@ -80,7 +80,7 @@ export default function SwipeDock() {
 
         {/* Main Button */}
         <motion.button
-          className="relative flex items-center justify-center w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg"
+          className="relative flex items-center justify-center w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg cursor-pointer"
           whileTap={{ scale: 0.95 }}
           drag={isHomePage ? "x" : false}
           dragConstraints={{ left: 0, right: 0 }}
