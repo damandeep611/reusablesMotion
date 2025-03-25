@@ -31,45 +31,45 @@ export default function TechIconsHero(){
       })
     })
   },[])
-  return(
+  return (
     <div className="relative mt-10">
       {/* Icons floating on waves */}
-      <div ref={iconsContainerRef} className=" z-10 flex gap-8 px-2">
+      <div ref={iconsContainerRef} className=" z-10 flex gap-8 md:gap-12 px-2">
         <div className="tech-icon flex flex-col items-center">
-          <div className="w-16 h-16 rounded-full flex items-center justify-center mb-2">
-            <SiTailwindcss className="w-10 h-10 text-[#38BDF8]" />
+          <div className="w-10 h-10 rounded-full flex items-center justify-center mb-2">
+            <SiTailwindcss className="w-8 h-8 text-[#38BDF8]" />
           </div>
-          <span className=" font-medium">TailwindCSS</span>
+          <span className=" font-md text-sm">TailwindCss</span>
         </div>
 
         <div className="tech-icon flex flex-col items-center">
-          <div className="w-16 h-16 rounded-full bg-[#FFBE0B] flex items-center justify-center mb-2">
-            <SiFramer className="w-10 h-10" />
+          <div className="w-10 h-10 rounded-full bg-[#FFBE0B] flex items-center justify-center mb-2">
+            <SiFramer className="w-6 h-6" />
           </div>
-          <span className=" font-medium">Framer</span>
+          <span className=" font-md text-sm">Framer</span>
         </div>
 
         <div className="tech-icon flex flex-col items-center">
-          <div className="w-16 h-16 rounded-full  border-2  flex items-center justify-center mb-2">
-            <SiNextdotjs className="w-10 h-10 " />
+          <div className="w-10 h-10 rounded-full  border-2  flex items-center justify-center mb-2">
+            <SiNextdotjs className="w-8 h-8 " />
           </div>
-          <span className="font-medium">Next.js</span>
+          <span className="font-medium text-sm">Next.js</span>
         </div>
 
         <div className="tech-icon flex flex-col items-center">
-          <div className="w-16 h-16 rounded-full  flex items-center justify-center mb-2">
-            <SiReact className="w-10 h-10 text-[#61DAFB]" />
+          <div className="w-10 h-10 rounded-full  flex items-center justify-center mb-2">
+            <SiReact className="w-8 h-8 text-[#61DAFB]" />
           </div>
-          <span className=" font-medium">React</span>
+          <span className=" font-medium text-sm">React</span>
         </div>
 
         <div className="tech-icon flex flex-col items-center">
-          <div className="w-16 h-16 rounded-full bg-[#88CE02] flex items-center justify-center mb-2">
-            <SiGreensock className="w-10 h-10 " />
+          <div className="w-10 h-10 rounded-full bg-[#88CE02] flex items-center justify-center mb-2">
+            <SiGreensock className="w-8 h-8 " />
           </div>
           <span className=" font-medium">GSAP</span>
         </div>
       </div>
     </div>
-  )
+  );
 }
