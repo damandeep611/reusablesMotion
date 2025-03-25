@@ -1,62 +1,74 @@
 import { motion } from "framer-motion"
 import { useState } from "react";
+import TechIconsHero from "./TechIconsHero";
 
-
-//text reveal animation variants 
+//text reveal animation variants
 const container = {
-  hidden: {opacity: 0},
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
       staggerChildren: 0.12,
-      delayChildren: 0.3
-    }
+      delayChildren: 0.3,
+    },
   },
-}
+};
 
 const item = {
-  hidden: {y: 20, opacity: 0},
+  hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
-    transition: {type: "spring", stiffness: 100}
-  }
-}
+    transition: { type: "spring", stiffness: 100 },
+  },
+};
 
+export default function HeroSection() {
+  const [inputFocus, setInputFocus] = useState(false);
 
-
-export default function HeroSection (){
-  const [inputFocus, setInputFocus] = useState(false)
-
-  
-  return(
+  return (
     <div className=" w-full min-h-screen px-6 py-12 md:px-12 lg:px-24 flex flex-col md:flex-row items-center justify-between ">
-     <motion.div
+      <motion.div
         className="w-full md:w-3/5 mb-12 md:mb-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <motion.div variants={container} initial="hidden" animate="visible" className="mb-6">
-          <motion.h1 variants={item} className="text-5xl md:text-6xl lg:text-7xl font-bold">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="visible"
+          className="mb-6"
+        >
+          <motion.h1
+            variants={item}
+            className="text-5xl md:text-6xl lg:text-7xl font-bold"
+          >
             Collection
           </motion.h1>
-          <motion.h1 variants={item} className="text-5xl md:text-6xl lg:text-7xl font-bold">
+          <motion.h1
+            variants={item}
+            className="text-5xl md:text-6xl lg:text-7xl font-bold"
+          >
             of{" "}
-            <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">stunning</span>
+            <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
+              stunning
+            </span>
           </motion.h1>
-          <motion.h1 variants={item} className="text-5xl md:text-6xl lg:text-7xl font-bold">
+          <motion.h1
+            variants={item}
+            className="text-5xl md:text-6xl lg:text-7xl font-bold"
+          >
             components.
           </motion.h1>
         </motion.div>
 
-        <p className="text-lg max-w-md  md:text-xl mb-8">
-          50+ Reusable UI components built with <span className="text-cyan-400">Tailwind CSS</span> and{" "}
-          <span className="text-pink-400">Framer Motion</span> perfect for <span className="">React</span> and{" "}
-          <span className="">Next.js</span>.
+        <p className="text-lg max-w-lg  md:text-xl mb-8">
+          50+ Reusable UI components built with{" "}
+          <span className="text-cyan-400">Tailwind CSS</span> and{" "}
+          <span className="text-pink-400">Framer Motion</span> perfect for{" "}
+          <span className="">React</span> and <span className="">Next.js</span>.
         </p>
-
-      
 
         <div className="flex flex-col sm:flex-row gap-4">
           <motion.button
@@ -65,7 +77,12 @@ export default function HeroSection (){
             whileTap={{ scale: 0.98 }}
           >
             Browse Components
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              className="w-4 h-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M7 17L17 7M17 7H7M17 7V17"
                 stroke="currentColor"
@@ -82,7 +99,12 @@ export default function HeroSection (){
             whileTap={{ scale: 0.98 }}
           >
             Go to Templates
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              className="w-4 h-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M5 12H19M19 12L12 5M19 12L12 19"
                 stroke="currentColor"
@@ -93,8 +115,7 @@ export default function HeroSection (){
             </svg>
           </motion.button>
         </div>
-
-        
+        <TechIconsHero />
       </motion.div>
 
       {/* Right column */}
@@ -122,9 +143,16 @@ export default function HeroSection (){
 
           <div className="absolute bottom-0 left-0 p-6 w-full">
             <h3 className="text-2xl font-bold mb-1">Modern Design Systems</h3>
-            <p className="text-sm text-white/80 mb-4">Explore the fundamentals of contemporary UI design</p>
+            <p className="text-sm text-white/80 mb-4">
+              Explore the fundamentals of contemporary UI design
+            </p>
 
-            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              className="w-5 h-5 text-white"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M7 17L17 7M17 7H7M17 7V17"
                 stroke="currentColor"
@@ -151,9 +179,15 @@ export default function HeroSection (){
                 borderColor: inputFocus
                   ? ["rgba(96, 165, 250, 0.5)", "rgba(236, 72, 153, 0.5)"]
                   : "rgba(55, 65, 81, 1)",
-                boxShadow: inputFocus ? "0 0 0 3px rgba(96, 165, 250, 0.3)" : "none",
+                boxShadow: inputFocus
+                  ? "0 0 0 3px rgba(96, 165, 250, 0.3)"
+                  : "none",
               }}
-              transition={{ duration: 1.5, repeat: inputFocus ? Number.POSITIVE_INFINITY : 0, repeatType: "reverse" }}
+              transition={{
+                duration: 1.5,
+                repeat: inputFocus ? Number.POSITIVE_INFINITY : 0,
+                repeatType: "reverse",
+              }}
             />
             <input
               type="text"
@@ -163,7 +197,12 @@ export default function HeroSection (){
               onBlur={() => setInputFocus(false)}
             />
             <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-              <svg className="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                className="w-5 h-5 text-gray-400"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
                   stroke="currentColor"
@@ -176,9 +215,17 @@ export default function HeroSection (){
           </div>
 
           <div className="space-y-3">
-            <motion.div className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800" whileHover={{ x: 5 }}>
+            <motion.div
+              className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800"
+              whileHover={{ x: 5 }}
+            >
               <div className="text-blue-400">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M6 8H18M6 12H18M6 16H18"
                     stroke="currentColor"
@@ -194,9 +241,17 @@ export default function HeroSection (){
               <div className="text-gray-500 text-sm">Operator</div>
             </motion.div>
 
-            <motion.div className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800" whileHover={{ x: 5 }}>
+            <motion.div
+              className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800"
+              whileHover={{ x: 5 }}
+            >
               <div className="text-orange-500">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M8 6H16M8 12H16M8 18H12"
                     stroke="currentColor"
@@ -226,7 +281,12 @@ export default function HeroSection (){
             whileHover={{ y: -5, scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              className="w-5 h-5 text-white"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M3 12H21M12 3V21"
                 stroke="currentColor"
@@ -242,7 +302,12 @@ export default function HeroSection (){
             whileHover={{ y: -5, scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              className="w-5 h-5 text-white"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15M17 8L12 3M12 3L7 8M12 3V15"
                 stroke="currentColor"
@@ -258,7 +323,12 @@ export default function HeroSection (){
             whileHover={{ y: -5, scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              className="w-5 h-5 text-white"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M9 11L12 14L22 4M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16"
                 stroke="currentColor"
@@ -270,8 +340,6 @@ export default function HeroSection (){
           </motion.div>
         </motion.div>
       </motion.div>
-
-     
     </div>
-  )
+  );
 }
