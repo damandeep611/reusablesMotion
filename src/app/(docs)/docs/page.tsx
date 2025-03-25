@@ -74,7 +74,7 @@ export default function Page() {
         }
       });
     };
-  }, []);
+  });
 
   return (
     <div className="flex flex-col lg:flex-row  min-h-screen">

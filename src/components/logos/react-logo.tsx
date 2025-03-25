@@ -1,7 +1,7 @@
 import { SVGProps } from "react";
 
-interface ReactLogoProps extends SVGProps<SVGSVGElement>{
-  size?: number
+interface ReactLogoProps extends SVGProps<SVGSVGElement> {
+  size?: number;
 }
 
 export function ReactLogo({ size = 20, className, ...props }: ReactLogoProps) {

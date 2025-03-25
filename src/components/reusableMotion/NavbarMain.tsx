@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Github, Menu, Twitter, X, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { FaGithub } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { RxMoon, RxSun } from "react-icons/rx";
 
 // Navbar props
 
@@ -40,7 +43,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="border-b border-gray-300 dark:border-gray-700 bg-white dark:bg-black">
+    <div className="border-b ">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* left navbar */}
@@ -57,7 +60,7 @@ export default function Navbar() {
                   transition={{ type: "spring", stiffness: 300, damping: 15 }}
                   className="w-8 h-8 bg-indigo-600 dark:bg-indigo-300 rounded-md mr-2"
                 />
-                <Link href="/" className="font-bold text-xl dark:text-white">
+                <Link href="/" className="font-bold text-xl ">
                   ReuseMotion
                 </Link>
               </motion.div>
@@ -65,10 +68,7 @@ export default function Navbar() {
             <ul className="hidden lg:flex items-center justify-between space-x-8">
               {navItems.map((item) => (
                 <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-sm font-medium dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
-                  >
+                  <Link href={item.href} className="text-sm font-medium ">
                     {item.title}
                   </Link>
                 </li>
@@ -81,29 +81,25 @@ export default function Navbar() {
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+              className=""
             >
-              <Github size={25} />
+              <FaGithub size={20} />
             </a>
             <a
               href="https://x.com"
-              className="flex items-center dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+              className="flex items-center"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Twitter size={25} />
+              <FaXTwitter size={20} />
             </a>
             {mounted && (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                className="p-2 rounded-lg "
                 aria-label="Toggle theme"
               >
-                {theme === "dark" ? (
-                  <Sun size={25} className="text-gray-300" />
-                ) : (
-                  <Moon size={25} />
-                )}
+                {theme === "dark" ? <RxSun size={20} /> : <RxMoon size={20} />}
               </button>
             )}
           </div>
