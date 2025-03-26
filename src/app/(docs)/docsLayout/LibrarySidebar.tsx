@@ -21,15 +21,16 @@ import {
   Share2,
 } from "lucide-react"
 import Link from "next/link"
+import ThemeButton from "@/components/reusableMotion/ThemeButton";
 
 type MenuItem = {
-  id: string
-  title: string
-  icon?: React.ReactNode
-  path?: string
-  isNew?: boolean
-  children?: MenuItem[]
-}
+  id: string;
+  title: string;
+  icon?: React.ReactNode;
+  path?: string;
+  isNew?: boolean;
+  children?: MenuItem[];
+};
 
 // Components menu items
 const componentItems: MenuItem[] = [
@@ -60,21 +61,6 @@ const componentItems: MenuItem[] = [
             path: "/blocks/hero/designer",
           },
           {
-            id: "founder",
-            title: "Founder",
-            path: "/blocks/hero/founder",
-          },
-          {
-            id: "mindfully",
-            title: "Mindfully",
-            path: "/blocks/hero/mindfully",
-          },
-          {
-            id: "ai",
-            title: "AI",
-            path: "/blocks/hero/ai",
-          },
-          {
             id: "concept",
             title: "Concept",
             path: "/blocks/hero/concept",
@@ -83,17 +69,7 @@ const componentItems: MenuItem[] = [
           {
             id: "developer",
             title: "Developer",
-            path: "/blocks/hero/developer",
-          },
-          {
-            id: "light-effects",
-            title: "Light Effects",
-            path: "/blocks/hero/light-effects",
-          },
-          {
-            id: "studio",
-            title: "Studio",
-            path: "/blocks/hero/studio",
+            path: "/docs/herosections",
           },
         ],
       },
@@ -115,27 +91,6 @@ const componentItems: MenuItem[] = [
         title: "Page 02",
         icon: <File className="w-4 h-4" />,
         path: "/pages/page-02",
-        isNew: true,
-      },
-      {
-        id: "page-03",
-        title: "Page 03",
-        icon: <File className="w-4 h-4" />,
-        path: "/pages/page-03",
-        isNew: true,
-      },
-      {
-        id: "page-04",
-        title: "Page 04",
-        icon: <File className="w-4 h-4" />,
-        path: "/pages/page-04",
-        isNew: true,
-      },
-      {
-        id: "page-05",
-        title: "Page 05",
-        icon: <File className="w-4 h-4" />,
-        path: "/pages/page-05",
         isNew: true,
       },
     ],
@@ -176,6 +131,12 @@ const componentItems: MenuItem[] = [
         path: "/docs/mix",
       },
       {
+        id: "team-section",
+        title: "Team Showcase",
+        icon: <Layers className="w-4 h-4" />,
+        path: "/docs/team",
+      },
+      {
         id: "dock-menu",
         title: "Dock Menu",
         icon: <Layers className="w-4 h-4" />,
@@ -202,7 +163,7 @@ const componentItems: MenuItem[] = [
       },
     ],
   },
-]
+];
 
 // Templates menu items - Gen AI landing page templates
 const templateItems: MenuItem[] = [
@@ -288,16 +249,20 @@ const templateItems: MenuItem[] = [
       },
     ],
   },
-]
+];
 
-const NewBadge = () => <span className="px-1 py-0.5  text-[10px] font-medium bg-green-500/80 text-white rounded-md">New</span>
+const NewBadge = () => (
+  <span className="px-1 py-0.5  text-[10px] font-medium bg-green-500/80 text-white rounded-md">
+    New
+  </span>
+);
 
 type MenuItemProps = {
-  item: MenuItem
-  level: number
-  activePath: string
-  onNavigate: (path: string) => void
-}
+  item: MenuItem;
+  level: number;
+  activePath: string;
+  onNavigate: (path: string) => void;
+};
 
 const MenuItem: React.FC<MenuItemProps> = ({
   item,
@@ -330,7 +295,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
       <Link
         href={item.path || "/docs"}
         className={`flex items-center justify-between w-full px-4 py-2 text-sm cursor-pointer ${
-          isActive ? "bg-gray-200 " : "hover:bg-gray-300 "
+          isActive ? " font-bold " : " hover:font-semibold  "
         } ${level === 0 ? "font-medium" : ""}`}
         style={{ paddingLeft: `${level * 12 + 16}px` }}
         onClick={handleClick}
@@ -400,10 +365,10 @@ export const LibrarySidebar: React.FC<SidebarProps> = ({
           <Link href="/" className="flex items-center">
             <span className="text-green-400 text-xl">🥥</span>
             <span className="font-bold text-lg">ReuseMotion</span>
-            <span className="ml-1 px-1.5 py-0.5 text-xs font-medium bg-gray-700 text-white rounded-md">
-              Components
-            </span>
           </Link>
+          <span className="ml-1 text-xs font-medium  rounded-md">
+            <ThemeButton />
+          </span>
         </div>
 
         <div className="relative">

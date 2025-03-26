@@ -2,13 +2,12 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import { Github, Menu, Twitter, X, Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
-import { FaGithub } from "react-icons/fa";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { FaGithub, FaTwitter } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { RxMoon, RxSun } from "react-icons/rx";
 import MainIcon from "../logos/Icons-main";
+import ThemeButton from "./ThemeButton";
 
 // Navbar props
 
@@ -31,13 +30,6 @@ const navItems = [
 export default function Navbar() {
   // state for mobile menu button
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  // After mounting, we have access to the theme
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   return (
     <div className=" flex items-center justify-center w-full px-4 pt-2 ">
@@ -85,15 +77,7 @@ export default function Navbar() {
           >
             <FaXTwitter size={20} />
           </a>
-          {mounted && (
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-2 rounded-lg "
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? <RxSun size={20} /> : <RxMoon size={20} />}
-            </button>
-          )}
+          <ThemeButton />
         </div>
         {/* mobile menu button */}
         <div className="flex lg:hidden">
@@ -125,7 +109,7 @@ export default function Navbar() {
                   rel="noopener noreferrer"
                   className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-300"
                 >
-                  <Github className="h-5 w-5" />
+                  <FaGithub />
                   <span className="sr-only">GitHub</span>
                 </a>
                 <a
@@ -134,24 +118,9 @@ export default function Navbar() {
                   rel="noopener noreferrer"
                   className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-300"
                 >
-                  <Twitter className="h-5 w-5" />
+                  <FaTwitter />
                   <span className="sr-only">Twitter</span>
                 </a>
-                {mounted && (
-                  <button
-                    onClick={() =>
-                      setTheme(theme === "dark" ? "light" : "dark")
-                    }
-                    className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
-                    aria-label="Toggle theme"
-                  >
-                    {theme === "dark" ? (
-                      <Sun size={20} className="text-gray-300" />
-                    ) : (
-                      <Moon size={20} />
-                    )}
-                  </button>
-                )}
               </div>
             </div>
           </div>
