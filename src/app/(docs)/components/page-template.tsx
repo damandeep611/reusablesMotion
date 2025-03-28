@@ -11,12 +11,15 @@ interface PageTemplateProps {
 
 const PageTemplate = ({ title, description, children, className }: PageTemplateProps) => {
   return (
-    <section className={cn("flex flex-col gap-3", className)}>
+    <section className={cn("flex flex-col gap-3 pt-16", className)}>
       {title && (
-        <h1 id={title.toLowerCase().replace(/\s+/g, '-')} className="text-xl font-bold scroll-m-20">
+        <h1
+          id={title.toUpperCase().replace(/\s+/g, "-")}
+          className="text-3xl font-bold capitalize scroll-m-20"
+        >
           {title}
-          <a 
-            href={`#${title.toLowerCase().replace(/\s+/g, '-')}`} 
+          <a
+            href={`#${title.toLowerCase().replace(/\s+/g, "-")}`}
             className="ml-2 opacity-0 hover:opacity-100 text-blue-500"
             aria-label={`Link to ${title}`}
           >
@@ -24,7 +27,7 @@ const PageTemplate = ({ title, description, children, className }: PageTemplateP
           </a>
         </h1>
       )}
-      {description && <p className="text-lg">{description}</p>}
+      {description && <p className="text-lg text-gray-400">{description}</p>}
       {children}
     </section>
   );

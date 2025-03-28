@@ -65,7 +65,7 @@ export default function TeamHoverTwo() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
-    <section className="bg-black text-white py-16 overflow-hidden">
+    <section className="bg-black text-white  py-16 overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-center text-lg md:text-xl mb-12 text-gray-300"
@@ -108,15 +108,21 @@ export default function TeamHoverTwo() {
                 transition={{ duration: 0.3 }}
                 className="flex items-center space-x-4 text-gray-400"
               >
-                <motion.span className="text-sm font-medium">{people[hoveredIndex].name}</motion.span>
-                <motion.span className="text-sm">{people[hoveredIndex].role}</motion.span>
-                <motion.span className="text-sm text-blue-400">{people[hoveredIndex].contact}</motion.span>
+                <motion.span className="text-sm font-medium">
+                  {people[hoveredIndex].name}
+                </motion.span>
+                <motion.span className="text-sm">
+                  {people[hoveredIndex].role}
+                </motion.span>
+                <motion.span className="text-sm text-blue-400">
+                  {people[hoveredIndex].contact}
+                </motion.span>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
       </div>
     </section>
-  )
+  );
 }
 

@@ -65,10 +65,10 @@ export default function TeamHover() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
-    <section className="bg-black text-white py-16 overflow-hidden">
+    <section className=" py-16 overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-center text-lg md:text-xl mb-12 text-gray-300"
+          className="text-center text-lg md:text-xl mb-12 "
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -107,9 +107,15 @@ export default function TeamHover() {
                     >
                       <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-gray-900 transform rotate-45" />
                       <div className="relative">
-                        <p className="font-medium text-white text-sm">{person.name}</p>
-                        <p className="text-gray-400 text-xs mt-1">{person.role}</p>
-                        <p className="text-blue-400 text-xs mt-2">{person.contact}</p>
+                        <p className="font-medium text-white text-sm">
+                          {person.name}
+                        </p>
+                        <p className="text-gray-400 text-xs mt-1">
+                          {person.role}
+                        </p>
+                        <p className="text-blue-400 text-xs mt-2">
+                          {person.contact}
+                        </p>
                       </div>
                     </motion.div>
                   )}
@@ -120,6 +126,6 @@ export default function TeamHover() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 

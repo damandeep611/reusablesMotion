@@ -52,10 +52,10 @@ const technologies = [
 
 export default function BasicTeamSection() {
   return (
-    <section className="bg-black text-white py-16 overflow-hidden">
+    <section className=" py-16 overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-center text-lg md:text-xl mb-12 text-gray-300"
+          className="text-center text-lg md:text-xl mb-12 "
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -89,7 +89,7 @@ export default function BasicTeamSection() {
           {technologies.map((tech, index) => (
             <motion.div
               key={tech.name}
-              className="flex items-center space-x-2 text-gray-400 hover:text-gray-200 transition-colors"
+              className="flex items-center space-x-2  hover:text-gray-600 transition-colors"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 + 0.5, duration: 0.5 }}
@@ -101,6 +101,6 @@ export default function BasicTeamSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 

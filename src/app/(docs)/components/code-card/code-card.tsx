@@ -62,20 +62,10 @@ const TabButton = ({ children, isActive, onClick }: TabButtonProps) => {
       onClick={onClick}
       className={cn(
         "relative flex items-center justify-between gap-2 px-4 py-2 rounded-md font-semibold font-regular text-md transition-colors duration-200",
-        isActive ? " shadow-sm bg-gray-800" : " "
+        isActive ? " border border-gray-400 shadow-sm" : ""
       )}
     >
       {children}
-      {/* this following isactive showed a bar line below active tab button */}
-      {/* {isActive && (
-        <motion.div
-          className="absolute bottom-0 left-0  bg-gray-100 my-1 rounded-full"
-          layoutId="activeTab"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.2 }}
-        />
-      )} */}
     </button>
   );
 };
